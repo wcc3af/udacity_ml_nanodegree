@@ -23,6 +23,10 @@ class LearningAgent(Agent):
         deadline = self.env.get_deadline(self)
 
         # TODO: Update state
+        # location, heading, delta, deadline, oncoming, traffic light state
+        inputs['waypoint'] = self.next_waypoint
+
+        self.state = tuple(sorted(inputs.items())) # performs the actual update
 
         # TODO: Select action according to your policy
         actions = [None,'forward','left','right']
